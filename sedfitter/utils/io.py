@@ -13,7 +13,8 @@ __all__ = ['create_dir', 'delete_dir', 'delete_file', 'read_table']
 
 def create_dir(dir_name):
     delete_dir(dir_name)
-    os.system("mkdir " + dir_name)
+    #os.system("mkdir " + dir_name)
+    os.mkdir(dir_name)      # The other function didn't work on my Windows machine otherwise
 
 
 def delete_dir(dir_name):
