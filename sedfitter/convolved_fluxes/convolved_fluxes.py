@@ -311,7 +311,8 @@ class ConvolvedFluxes(object):
 
             # If any apertures are smaller than the defined min, raise error
             if np.any(c.apertures < self.apertures.min()):
-                raise Exception("Aperture(s) requested too small")
+                apertures[c.apertures < self.apertures.min()] = self.apertures.min()
+                #raise Exception("Aperture(s) requested too small", c.apertures, self.apertures.min())
 
             # Note that we have to be careful here because interp1d will drop
             # the units, so we need to make sure the new apertures are in the
