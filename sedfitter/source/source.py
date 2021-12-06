@@ -175,18 +175,18 @@ class Source(object):
         r = self.valid == 1
         log_flux[r] = np.log10(self.flux[r]) - 0.5 * (self.error[r] / self.flux[r]) ** 2. / np.log(10.)
         log_error[r] = np.abs(self.error[r] / self.flux[r]) / np.log(10.)
-        weight[r] = 1. / log_error[r] ** 2.
+        weight[r] = 1. #/ log_error[r] ** 2.
 
         # Lower and upper limits
         r = (self.valid == 2) | (self.valid == 3)
         log_flux[r] = np.log10(self.flux[r])
-        log_error[r] = self.error[r]
+        log_error[r] = 1. #self.error[r]
 
         # Log10[Fluxes]
         r = self.valid == 4
         log_flux[r] = self.flux[r]
         log_error[r] = self.error[r]
-        weight[r] = 1. / log_error[r] ** 2.
+        weight[r] = 1. #/ log_error[r] ** 2.
 
         # Ignored points
         r = self.valid == 9
