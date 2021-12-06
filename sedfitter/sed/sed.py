@@ -356,7 +356,8 @@ class SED(object):
 
         # If any apertures are smaller than the defined min, raise Exception
         if np.any(apertures < self.apertures.min()):
-            raise Exception("Aperture(s) requested too small")
+            apertures[apertures < self.apertures.min()] = self.apertures.min()
+            #raise Exception("Aperture(s) requested too small")
 
         return flux_interp(apertures)
 
@@ -378,7 +379,8 @@ class SED(object):
 
         # If any apertures are smaller than the defined min, raise Exception
         if np.any(apertures < sed_apertures.min()):
-            raise Exception("Aperture(s) requested too small")
+            apertures[apertures < sed_apertures.min()] = sed_apertures.min()
+            #raise Exception("Aperture(s) requested too small")
 
         # Find wavelength order
         order = np.argsort(wavelengths)
