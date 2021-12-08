@@ -40,11 +40,11 @@ def write_parameters(input_fits, output_file, select_format=("N", 1), additional
     t.sort('MODEL_NAME')
 
     # First header line
-    fout.write("source_name".center(30) + ' ')
+    fout.write("# source_name".center(30) + ' ')
     fout.write("n_data".center(10) + ' ')
     fout.write("n_fits".center(10) + ' ')
 
-    fout.write('\n')
+    #fout.write('\n')
 
     # Second header line
 
@@ -61,8 +61,8 @@ def write_parameters(input_fits, output_file, select_format=("N", 1), additional
 
     fout.write('\n')
 
-    fout.write('-' * (75 + 11 * (len(list(t.columns.keys()) + list(additional.keys())))))
-    fout.write('\n')
+    #fout.write('-' * (75 + 11 * (len(list(t.columns.keys()) + list(additional.keys())))))
+    #fout.write('\n')
 
     for info in fin:
 
@@ -75,7 +75,7 @@ def write_parameters(input_fits, output_file, select_format=("N", 1), additional
         fout.write("%30s " % info.source.name)
         fout.write("%10i " % info.source.n_data)
         fout.write("%10i " % info.n_fits)
-        fout.write("\n")
+        #fout.write("\n")
 
         for fit_id in range(len(info.chi2)):
             fout.write('%10i ' % (fit_id + 1))
