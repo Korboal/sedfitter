@@ -180,7 +180,7 @@ class Source(object):
         # Lower and upper limits
         r = (self.valid == 2) | (self.valid == 3)
         log_flux[r] = np.log10(self.flux[r])
-        log_error[r] = 1. #self.error[r]
+        log_error[r] = self.error[r]
 
         # Log10[Fluxes]
         r = self.valid == 4
